@@ -69,7 +69,5 @@ public class RaterDatabase {
     public static int size() {
         return ourRaters.size();
     }
-    
-    
-        
+          
 }
