@@ -1,4 +1,8 @@
 /** 
+ * This class corresponds to the corresponding assignments in part one of the Duke University Java Programming: 
+ * Build a Recommendation System course taught on Coursera.
+ * The data stored in CSV is read through the this class.
+ *
  * @author (https://github.com/danielvillam) 
  * @version (June 21, 2024)
  */

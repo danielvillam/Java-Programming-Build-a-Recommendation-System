@@ -1,4 +1,8 @@
 /** 
+ * This class corresponds to the corresponding assignments in part two of the Duke University Java Programming: 
+ * Build a Recommendation System course taught on Coursera.
+ * Movie Runner Average.
+ * 
  * @author (https://github.com/danielvillam) 
  * @version (June 24, 2024)
  */

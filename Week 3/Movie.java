@@ -1,4 +1,8 @@
 /** 
+ * This class corresponds to the corresponding assignments in part one of the Duke University Java Programming: 
+ * Build a Recommendation System course taught on Coursera.
+ * It is a data object (PDO) class. The movie object information is save.
+ * 
  * @author (https://github.com/danielvillam) 
  * @version (June 20, 2024)
  */
@@ -57,19 +61,23 @@ public class Movie {
     public String getGenres () {
         return genres;
     }
-
+    
+    // Returns country associated with this item
     public String getCountry(){
         return country;
     }
-
+    
+    // Returns the director associated with this item
     public String getDirector(){
         return director;
     }
 
+    // Returns the poster associated with this item
     public String getPoster(){
         return poster;
     }
-
+    
+    // Returns minutes of duration associated with this item
     public int getMinutes(){
         return minutes;
     }

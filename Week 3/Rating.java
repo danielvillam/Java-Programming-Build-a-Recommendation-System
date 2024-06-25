@@ -1,4 +1,8 @@
 /** 
+ * This class corresponds to the corresponding assignments in part one of the Duke University Java Programming: 
+ * Build a Recommendation System course taught on Coursera.
+ * It is a data object (PDO) class. The Rating object information is save.
+ *  
  * @author (https://github.com/danielvillam) 
  * @version (June 20, 2024)
  */

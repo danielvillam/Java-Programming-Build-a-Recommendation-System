@@ -1,4 +1,8 @@
 /** 
+ * This class corresponds to the corresponding assignments in part three of the Duke University Java Programming: 
+ * Build a Recommendation System course taught on Coursera.
+ * Helper class to calculate some averages.
+ *  
  * @author (https://github.com/danielvillam) 
  * @version (June 24, 2024)
  */
@@ -6,7 +10,7 @@
 import java.util.*;
 public class ThirdRatings {
     private ArrayList<Rater> myRaters;
-    //puede que esste no haga falta:
+
     private HashMap<String, HashMap<String,Rating>> loadRaters;
     
     public ThirdRatings() {
@@ -16,7 +20,7 @@ public class ThirdRatings {
     public ThirdRatings(String ratingsfile){
         FirstRatings ratings = new FirstRatings();
         myRaters = ratings.csvRead(ratingsfile);
-        //mira si necesitas esto cuando acabes
+
         loadRaters = ratings.loadRaters(ratingsfile);
     }
     

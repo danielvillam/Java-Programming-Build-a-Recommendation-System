@@ -1,4 +1,8 @@
 /** 
+ * This class corresponds to the corresponding assignments in part three of the Duke University Java Programming: 
+ * Build a Recommendation System course taught on Coursera.
+ * The classes are used to filter and their operation is evident with some specific filters.
+ * 
  * @author (https://github.com/danielvillam) 
  * @version (June 24, 2024)
  */
@@ -6,6 +10,8 @@
 import java.util.*;
 
 public class MovieRunnerWithFilters {
+    
+    // Helper method
     private int helperMoviesAndRatings(){
         ThirdRatings  MoviesAndRatings = new ThirdRatings("ratings.csv");
         System.out.println("Number of total of Raters: " + MoviesAndRatings.getRaterSize());

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=DirectorsFilter
-comment0.text=\ \r\n\ @author\ (https\://github.com/danielvillam)\ \r\n\ @version\ (June\ 24,\ 2024)\r\n
+comment0.text=\ \r\n\ This\ class\ corresponds\ to\ the\ corresponding\ assignments\ in\ part\ three\ of\ the\ Duke\ University\ Java\ Programming\:\ \r\n\ Build\ a\ Recommendation\ System\ course\ taught\ on\ Coursera.\r\n\ Movies\ are\ filtered\ for\ a\ specific\ director.\r\n\ \r\n\ @author\ (https\://github.com/danielvillam)\ \r\n\ @version\ (June\ 24,\ 2024)\r\n
 comment1.params=director
 comment1.target=DirectorsFilter(java.lang.String)
 comment2.params=id

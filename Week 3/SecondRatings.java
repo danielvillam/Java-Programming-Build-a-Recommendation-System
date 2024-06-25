@@ -1,4 +1,9 @@
 /** 
+ * This class corresponds to the corresponding assignments in part two of the Duke University Java Programming: 
+ * Build a Recommendation System course taught on Coursera.
+ * The data stored in CSV is read through the FirstRatings class and averages and information requested are 
+ * found in this second part of the assignment.
+ * 
  * @author (https://github.com/danielvillam) 
  * @version (June 21, 2024)
  */
@@ -78,6 +83,7 @@ public class SecondRatings {
         return averageRatings;
     }
     
+    // Search if a movie ID corresponds to a title in the myMovies array.
     public String getTitle(String id){
         for(Movie m : myMovies){
             if(id.equals(m.getID())){
@@ -87,6 +93,7 @@ public class SecondRatings {
         return "Movie ID not found in the database";
     }
     
+    // Search if a movie title corresponds to an ID in the myMovies array.
     public String getID(String title){
         for(Movie m : myMovies){
             if(title.equals(m.getTitle())){
