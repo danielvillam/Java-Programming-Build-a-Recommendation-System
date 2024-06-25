@@ -23,7 +23,7 @@ public class FirstRatings {
     
     // Required for public testLoadMovies(filename)
     public ArrayList<Movie> loadMovies(String filename){
-        FileResource fr = new FileResource("data/" + filename);
+        FileResource fr = new FileResource(filename);
         CSVParser parser = fr.getCSVParser();
         ArrayList<Movie> MovieData = csvconvert(parser);
         return MovieData;
@@ -117,7 +117,7 @@ public class FirstRatings {
     private ArrayList<Rater> csvRater(CSVParser parser){
         ArrayList<Rater> loadRaters = new ArrayList<Rater>();
         for(CSVRecord rate : parser){
-            Rater newRater = new Rater(rate.get("rater_id"));
+            Rater newRater = new EfficientRater(rate.get("rater_id"));
             loadRaters.add(newRater);
             newRater.addRating(rate.get("movie_id"),Double.parseDouble(rate.get("rating")));
         }
@@ -133,43 +133,49 @@ public class FirstRatings {
     }
     
     // Convert csv file to supported information.
-    private HashMap<String, ArrayList<Rating>> csvLoadRaters(CSVParser parser){
-       HashMap<String, ArrayList<Rating>> idMap = new HashMap<String, ArrayList<Rating>>();
-       
+    private HashMap<String, HashMap<String,Rating>> csvLoadRaters(CSVParser parser){
+       HashMap<String, HashMap<String,Rating>> idMap = new HashMap<String, HashMap<String,Rating>>();
         for(CSVRecord rate : parser){
-            Rater tempRater = new Rater(rate.get("rater_id"));
-            tempRater.addRating(rate.get("movie_id"),Double.parseDouble(rate.get("rating")));
-            for(Rating  hey : tempRater.getMyRatings()){
-                if(!idMap.containsKey(tempRater.getID())){
-                    idMap.put(tempRater.getID(),tempRater.getMyRatings());
+           Rater tempRater = new EfficientRater(rate.get("rater_id"));
+           tempRater.addRating(rate.get("movie_id"),Double.parseDouble(rate.get("rating")));
+           for(String hey : tempRater.getaRating().keySet()){
+              if(!idMap.containsKey(tempRater.getID())){
+                   idMap.put(tempRater.getID(),tempRater.getaRating());
+              }
+              else{
+                   idMap.get(tempRater.getID()).put(hey,tempRater.getaRating().get(hey));
+              }
                 }
-                else{
-                    idMap.get(tempRater.getID()).add(hey);
-                }
-            }
-       }
+        }
        return idMap;
     }
     
     // Required for public testloadRaters(filename)
-    public HashMap<String, ArrayList<Rating>> loadRaters(String filename){
+    public HashMap<String, HashMap<String,Rating>> loadRaters(String filename){
         FileResource f = new FileResource("data/" + filename);
         CSVParser parser = f.getCSVParser();
-        HashMap<String, ArrayList<Rating>> loadRaters = csvLoadRaters(parser);
+        HashMap<String, HashMap<String,Rating>> loadRaters = csvLoadRaters(parser);
         return loadRaters;
     }
     
     // Information required by the assignment
     public void testLoadRaters(){
        String filename = "ratings.csv"; 
-       HashMap<String, ArrayList<Rating>> loadRaters = loadRaters(filename);
-
+       HashMap<String, HashMap<String,Rating>> loadRaters = loadRaters(filename);
+       
+       for(HashMap<String,Rating> rating : loadRaters.values()){
+            for(Rating rat : rating.values()){
+            }
+       }
+       
        System.out.println("Total raters = " + loadRaters.size());
        String specficRater = "193";
-       for(String s : loadRaters.keySet()){
-           if(s.equals(specficRater)){
-              System.out.println("The user with the specific ID " + s + " voted " + loadRaters.get(s).size() + " movies");
-           }
+       for(HashMap<String,Rating> rating : loadRaters.values()){
+            for(Rating rat : rating.values()){
+               if(rat.equals(specficRater)){
+                  System.out.println("The user with the specific ID " + rat + " voted " + loadRaters.get(rat).size() + " movies");
+               }
+            }
        }
        int max = 0;
        for(String s : loadRaters.keySet()){
@@ -189,18 +195,18 @@ public class FirstRatings {
        System.out.println("Amount of TOP1 user/s by no. of votes: " + countMaxRaters);
        String movie_id = "1798709";
        int timesVoted = 0;
-       for(ArrayList<Rating> totalRatings : loadRaters.values()){
-           for(Rating eachMovie : totalRatings){
+       for(HashMap<String,Rating> rating : loadRaters.values()){
+            for(Rating eachMovie : rating.values()){
                String moviesID = eachMovie.getItem();
                if(movie_id.equals(moviesID)){
                   timesVoted++;
                }
             }
-       }
+        }
        System.out.println("The movie with the ID: " + movie_id + " has been voted "  + timesVoted + " times");
        ArrayList<String> list = new ArrayList<String>();
-       for(ArrayList<Rating> totalRatings : loadRaters.values()){
-           for(Rating eachMovie : totalRatings){
+       for(HashMap<String,Rating> rating : loadRaters.values()){
+            for(Rating eachMovie : rating.values()){
                String moviesID = eachMovie.getItem();
                if(!list.contains(moviesID)){
                    list.add(moviesID);

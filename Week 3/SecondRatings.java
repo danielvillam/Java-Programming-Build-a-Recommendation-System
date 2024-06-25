@@ -10,7 +10,7 @@ public class SecondRatings {
     private ArrayList<Movie> myMovies;
     private ArrayList<Rater> myRaters;
 
-    private HashMap<String, ArrayList<Rating>> loadRaters;
+    private HashMap<String, HashMap<String,Rating>> loadRaters;
     
     public SecondRatings() {
         // default constructor
@@ -45,8 +45,8 @@ public class SecondRatings {
         if(minimalRaters == 0){
             return 0.0;
         }
-        for(ArrayList<Rating> rating : loadRaters.values()){
-            for(Rating rat : rating){
+        for(HashMap<String,Rating> rating : loadRaters.values()){
+            for(Rating rat : rating.values()){
                 if(rat.getItem().equals(id)){
                     double value = rat.getValue();
                     numRatings++;
