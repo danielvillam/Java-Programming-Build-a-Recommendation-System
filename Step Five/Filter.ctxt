@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Filter
+comment0.text=\ \r\n\ This\ class\ corresponds\ to\ the\ corresponding\ assignments\ in\ part\ three\ of\ the\ Duke\ University\ Java\ Programming\:\ \r\n\ Build\ a\ Recommendation\ System\ course\ taught\ on\ Coursera.\r\n\ Interface\ Filter.\r\n\ \r\n\ @author\ (https\://github.com/danielvillam)\ \r\n\ @version\ (June\ 24,\ 2024)\r\n
+comment1.params=id
+comment1.target=boolean\ satisfies(java.lang.String)
+numComments=2
